@@ -2,7 +2,7 @@ package com.matheusxreis.todo.model
 
 import java.util.*
 
-data class Task(
+data class Note(
     val title:String,
     val createdAt: Date = Calendar.getInstance().time,
     val description:String,
