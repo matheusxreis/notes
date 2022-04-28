@@ -8,11 +8,11 @@ class FakeApi {
 
     fun listAll(): List<Note> = notes;
 
-    fun addNewTask(note: Note){
+    fun addNewNote(note: Note){
         notes = notes.plus(note)
     }
 
-    fun removeTask(id: String){
+    fun removeNote(id: String){
         val newList = notes.filter {
             it.id !== id
         }

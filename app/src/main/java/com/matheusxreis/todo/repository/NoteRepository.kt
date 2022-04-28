@@ -11,16 +11,16 @@ class NoteRepository(
     private val fakeApi: FakeApi
 ){
 
-    fun listAll(){
-        fakeApi.listAll()
+    fun listAll(): List<Note>{
+       return fakeApi.listAll()
     }
 
-    fun addNewTask(note: Note){
-      fakeApi.addNewTask(note)
+    fun addNewNote(note: Note){
+      fakeApi.addNewNote(note)
     }
 
-    fun removeTask(id: String){
-       fakeApi.removeTask(id)
+    fun removeNote(id: String){
+       fakeApi.removeNote(id)
     }
 
 }
