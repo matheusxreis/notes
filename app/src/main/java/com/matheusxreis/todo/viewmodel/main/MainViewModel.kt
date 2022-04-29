@@ -32,7 +32,7 @@ class MainViewModel(
     }
 
     fun removeNote(id: String){
-        if(id.isNotEmpty()){
+        if(id.isNotEmpty() && noteRepository.listAll().isNotEmpty()){
             noteRepository.removeNote(id)
 
             noteLiveData.postValue(noteRepository.listAll())

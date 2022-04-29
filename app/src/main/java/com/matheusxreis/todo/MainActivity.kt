@@ -28,7 +28,8 @@ class MainActivity : AppCompatActivity() {
 
         //
 
-        var button: Button = findViewById(R.id.button)
+
+
 
         //injeção feita, View Model criado
         mainViewModel = ViewModelProvider(
@@ -41,13 +42,7 @@ class MainActivity : AppCompatActivity() {
             ).get(MainViewModel::class.java)
 
         var a = 1;
-        button.setOnClickListener {
-            a++;
 
-            mainViewModel.addNewNote(
-                Note(title="Item $a")
-            )
-        }
     }
 
 
@@ -60,12 +55,10 @@ class MainActivity : AppCompatActivity() {
         //assim, toda vez que ela mudar (Dentro do meu ViewModel,
         // através do postValue),
         //minha callback pode fazer alguma coisa
-        var test: TextView = findViewById(R.id.tv_test)
+
 
         mainViewModel.noteLiveData.observe(this,
-            {
-                test.text = it.last().title
-            })
+            {})
 
 
 
