@@ -25,6 +25,8 @@ class MainActivity : AppCompatActivity() {
     //adapter
     lateinit var noteAdapter: NoteAdapter;
 
+    //
+
 
 
 
@@ -83,6 +85,12 @@ class MainActivity : AppCompatActivity() {
     fun setDataIntoRv(){
 
         val a: List<Note> = listOf(
+            Note("Lavar a louça"),
+            Note("Oh, a vida"),
+            Note("Tomar o remédio"),
+            Note("Lavar a louça"),
+            Note("Oh, a vida"),
+            Note("Tomar o remédio"),
             Note("Lavar a louça"),
             Note("Oh, a vida"),
             Note("Tomar o remédio")

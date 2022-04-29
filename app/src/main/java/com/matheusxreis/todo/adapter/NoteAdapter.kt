@@ -1,5 +1,6 @@
 package com.matheusxreis.todo.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -46,7 +47,9 @@ class NoteAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
         fun bind(note: Note){
             title.text = note.title;
-            date.text = note.createdAt.toString();
+            date.text = note.createdAt.toString()
+
+
         }
     }
 }
