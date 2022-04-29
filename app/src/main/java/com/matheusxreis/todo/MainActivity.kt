@@ -6,6 +6,9 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.matheusxreis.todo.adapter.NoteAdapter
 import com.matheusxreis.todo.api.FakeApi
 import com.matheusxreis.todo.model.Note
 import com.matheusxreis.todo.repository.NoteRepository
@@ -18,6 +21,9 @@ class MainActivity : AppCompatActivity() {
     lateinit var mainViewModel: MainViewModel;
     lateinit var noteRepository: NoteRepository;
     val fakeApi = FakeApi();
+
+    //adapter
+    lateinit var noteAdapter: NoteAdapter;
 
 
 
@@ -41,11 +47,10 @@ class MainActivity : AppCompatActivity() {
                 )
             ).get(MainViewModel::class.java)
 
-        var a = 1;
+        initRecyclerView()
+        setDataIntoRv()
 
     }
-
-
 
 
     override fun onStart(){
@@ -64,4 +69,25 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
+    fun initRecyclerView(){
+        this.noteAdapter = NoteAdapter();
+
+        val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
+        recyclerView.apply{
+            layoutManager = LinearLayoutManager(this@MainActivity)
+            adapter = noteAdapter
+        }
+    }
+
+    fun setDataIntoRv(){
+
+        val a: List<Note> = listOf(
+            Note("Lavar a louça"),
+            Note("Oh, a vida"),
+            Note("Tomar o remédio")
+        )
+        noteAdapter.setItems(a)
+    }
+
 }
