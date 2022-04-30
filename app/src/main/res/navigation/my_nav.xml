@@ -10,7 +10,7 @@
 
     <fragment
         android:id="@+id/homeTasks"
-        android:name="com.matheusxreis.todo.HomeTasks"
+        android:name="com.matheusxreis.todo.view.HomeNote"
         android:label="fragment_home_tasks"
         tools:layout="@layout/fragment_home_tasks" >
         <action
@@ -18,10 +18,13 @@
             app:destination="@id/addTask"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right" />
+            <argument
+                android:name="listNotes"
+                app:argType="com.matheusxreis.todo.model.Note[]" />
     </fragment>
     <fragment
         android:id="@+id/addTask"
-        android:name="com.matheusxreis.todo.addTask"
+        android:name="com.matheusxreis.todo.view.addNote"
         android:label="fragment_add_task"
         tools:layout="@layout/fragment_add_task" >
         <action
@@ -29,5 +32,8 @@
             app:destination="@id/homeTasks"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right" />
+        <argument
+            android:name="listNotes"
+            app:argType="com.matheusxreis.todo.model.Note[]" />
     </fragment>
 </navigation>

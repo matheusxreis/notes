@@ -1,6 +1,5 @@
-package com.matheusxreis.todo.viewmodel.main
+package com.matheusxreis.todo.viewmodel.note
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.matheusxreis.todo.model.Note
@@ -10,7 +9,7 @@ Os LiveData são como os estados no React.
 São os dados observados que devem ser atualizados.
 O livedata respeita o ciclo de vida da sua Activity.
 */
-class MainViewModel(
+class NoteViewModel(
     private val noteRepository: NoteRepository,
 ):ViewModel() {
 //a regra de negócio acontece aqui

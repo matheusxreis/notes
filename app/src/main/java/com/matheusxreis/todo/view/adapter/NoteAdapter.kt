@@ -1,6 +1,5 @@
-package com.matheusxreis.todo.adapter
+package com.matheusxreis.todo.view.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,7 +7,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.matheusxreis.todo.R
 import com.matheusxreis.todo.model.Note
-import org.w3c.dom.Text
 
 class NoteAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
