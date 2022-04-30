@@ -43,10 +43,10 @@
 
             <ImageView
                 android:id="@+id/backicon"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginTop="5dp"
-    
+                android:src="@drawable/ic_baseline_chevron_left_24"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -58,28 +58,67 @@
 
 
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar2"
-        tools:listitem="@layout/list_holder"/>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_margin="6dp"
-        android:background="@color/primary"
-        app:borderWidth="0dp"
-        android:backgroundTint="@color/primary"
-        android:src="@drawable/ic_baseline_add_24"
-        app:fabCustomSize="70dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:maxImageSize="30dp"
-        app:tint="@android:color/white" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="80dp"
+        android:layout_marginLeft="5dp">
+
+
+
+        <TextView
+            android:id="@+id/tit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_condensed_bold"
+            android:text="Entendi tudo!"
+            android:textColor="@color/primary"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="@+id/add_icon_pen"
+            app:layout_constraintStart_toEndOf="@+id/add_icon_pen"
+
+            />
+
+        <TextView
+            android:id="@+id/desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_condensed_bold"
+            android:text="Gostaria de deixar anotado, que nessa semana, eu finalmente entendi."
+            android:textColor="@color/primary"
+            android:textSize="20dp"
+            app:layout_constraintTop_toBottomOf="@id/input_title"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="20dp"
+            />
+
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/urgent_button"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:layout_constraintTop_toBottomOf="@id/important_level"
+        app:layout_constraintStart_toEndOf="parent"
+        android:backgroundTint="@color/urgent"
+        app:strokeColor="@android:color/transparent"
+        app:strokeWidth="4dp"
+        app:cornerRadius="5dp"
+        android:text="very"
+        android:textSize="20dp"
+        />
+
+
+
+
+    </LinearLayout>
+</ScrollView>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

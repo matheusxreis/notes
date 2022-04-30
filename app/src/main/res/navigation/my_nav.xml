@@ -21,6 +21,9 @@
             <argument
                 android:name="listNotes"
                 app:argType="com.matheusxreis.todo.model.Note[]" />
+        <action
+            android:id="@+id/action_homeTasks_to_notePage"
+            app:destination="@id/notePage" />
     </fragment>
     <fragment
         android:id="@+id/addTask"
@@ -35,5 +38,14 @@
         <argument
             android:name="listNotes"
             app:argType="com.matheusxreis.todo.model.Note[]" />
+    </fragment>
+    <fragment
+        android:id="@+id/notePage"
+        android:name="com.matheusxreis.todo.NotePage"
+        android:label="fragment_note_page"
+        tools:layout="@layout/fragment_note_page" >
+        <action
+            android:id="@+id/action_notePage_to_homeTasks"
+            app:destination="@id/homeTasks" />
     </fragment>
 </navigation>

@@ -62,18 +62,6 @@ class HomeNote : Fragment(R.layout.fragment_home_tasks) {
 
     fun setDataIntoRv(){
 
-        val a: List<Note> = listOf(
-            Note("Lavar a louça"),
-            Note("Oh, a vida"),
-            Note("Tomar o remédio"),
-            Note("Lavar a louça"),
-            Note("Oh, a vida"),
-            Note("Tomar o remédio"),
-            Note("Lavar a louça"),
-            Note("Oh, a vida"),
-            Note("Tomar o remédio")
-        )
-
         val b = model.listAll();
         noteAdapter.setItems(b);
 

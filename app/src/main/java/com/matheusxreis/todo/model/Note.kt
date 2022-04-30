@@ -13,5 +13,6 @@ data class Note(
     val createdAt: Date? = Calendar.getInstance().time,
     val description:String? = "Sem descrição",
     val done: Boolean? = false,
-    val id: String? ="ahashuass"
+    val id: String? ="ahashuass",
+    val important: Boolean = false,
     ): Parcelable

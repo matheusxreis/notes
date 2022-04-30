@@ -63,9 +63,10 @@
                 android:layout_marginBottom="15dp"
                 />
 
-             <androidx.cardview.widget.CardView
+             <com.google.android.material.button.MaterialButton
+                 android:id="@+id/rv_status_important"
                 android:layout_width="82dp"
-                android:layout_height="9dp"
+                android:layout_height="19dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                  android:backgroundTint="@color/urgent"

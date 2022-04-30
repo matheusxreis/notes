@@ -1,5 +1,6 @@
 package com.matheusxreis.todo.viewmodel.note
 
+import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.matheusxreis.todo.model.Note
@@ -16,6 +17,8 @@ class NoteViewModel(
 
     val noteLiveData = MutableLiveData<List<Note>>()
 
+    val error = MutableLiveData<Boolean>()
+
     fun listAll (): List<Note> = noteRepository.listAll();
 
 
@@ -24,6 +27,9 @@ class NoteViewModel(
             noteRepository.addNewNote(note)
 
             noteLiveData.postValue(noteRepository.listAll())
+            error.postValue(false)
+        }else {
+            error.postValue(true)
         }
 
 

@@ -42,10 +42,18 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun observeViewModel(){
-        mainViewModel.noteLiveData.observe(this,
+
+        mainViewModel.noteLiveData.observe(this)
             {
                 Toast.makeText(this, "The list has changed!", Toast.LENGTH_LONG).show()
-            })
+            }
+
+
+         mainViewModel.error.observe(this) {
+            if (it === true) {
+                Toast.makeText(this, "Please, put at least a title.", Toast.LENGTH_LONG).show()
+            }
+        }
     }
 
 

@@ -10,7 +10,9 @@
 
     <color name="toolBar"> #388DD7 </color>
     <color name="urgent">#DF4C4C</color>
+    <color name="urgentSelected">#B22828</color>
     <color name="easy">#56BEA5</color>
+    <color name="easySelected">#378975</color>
 
 
 </resources>
