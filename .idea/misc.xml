@@ -12,7 +12,7 @@
         <entry key="app/src/main/res/drawable/toolbar_shadow.xml" value="0.181" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/background_toolbar.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_add_task.xml" value="0.36486486486486486" />
+        <entry key="app/src/main/res/layout/fragment_add_task.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_home_tasks.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_note_page.xml" value="0.33" />
         <entry key="app/src/main/res/layout/list_holder.xml" value="0.5" />

@@ -23,7 +23,9 @@
                 app:argType="com.matheusxreis.todo.model.Note[]" />
         <action
             android:id="@+id/action_homeTasks_to_notePage"
-            app:destination="@id/notePage" />
+            app:destination="@id/notePage"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
     </fragment>
     <fragment
         android:id="@+id/addTask"
@@ -41,7 +43,7 @@
     </fragment>
     <fragment
         android:id="@+id/notePage"
-        android:name="com.matheusxreis.todo.NotePage"
+        android:name="com.matheusxreis.todo.view.NotePage"
         android:label="fragment_note_page"
         tools:layout="@layout/fragment_note_page" >
         <action

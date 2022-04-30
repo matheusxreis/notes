@@ -12,9 +12,9 @@ import com.google.android.material.button.MaterialButton
 import com.matheusxreis.todo.R
 import com.matheusxreis.todo.model.Note
 
-class NoteAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
+class NoteAdapter(val onClick: (note: Note)->Unit?): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
-    private var notes: List<Note> = listOf();
+     var notes: List<Note> = listOf(); private set
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return NoteViewHolder(
@@ -41,6 +41,8 @@ class NoteAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
     }
 
 
+
+
     inner class NoteViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
 
         private val title = itemView.findViewById<TextView>(R.id.rv_title)
@@ -48,7 +50,7 @@ class NoteAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
         private val statusImportant = itemView.findViewById<MaterialButton>(R.id.rv_status_important)
 
 
-        @SuppressLint("ResourceAsColor")
+
         fun bind(note: Note){
             title.text = note.title;
             date.text = note.createdAt.toString();
@@ -57,7 +59,13 @@ class NoteAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
             statusImportant.setBackgroundColor(ContextCompat.getColor(
                 itemView.context,
                getColor(note)))
+
+            itemView.setOnClickListener {
+               onClick(note)
+            }
+
         }
+
 
 
         private fun getColor(note:Note):Int{
@@ -68,5 +76,7 @@ class NoteAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
                 }
                 return R.color.easy
         }
+
+
     }
 }

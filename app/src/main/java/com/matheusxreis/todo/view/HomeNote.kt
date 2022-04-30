@@ -6,8 +6,11 @@ import android.util.AttributeSet
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.View
+import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -46,14 +49,18 @@ class HomeNote : Fragment(R.layout.fragment_home_tasks) {
 
         floatButton.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.action_homeTasks_to_addTask);
-            Log.d(null, notesList.toString())
+
         }
     }
 
     fun initRecyclerView(view: View){
-        this.noteAdapter = NoteAdapter();
+        this.noteAdapter = NoteAdapter{
+            this.handleGoToNotePage(it)
+        };
 
         val recyclerView: RecyclerView = view.findViewById(R.id.recyclerView)
+
+        ItemTouchHelper(mySimpleCallback()).attachToRecyclerView(recyclerView)
         recyclerView.apply{
             layoutManager = LinearLayoutManager(this@HomeNote.requireContext())
             adapter = noteAdapter
@@ -64,7 +71,39 @@ class HomeNote : Fragment(R.layout.fragment_home_tasks) {
 
         val b = model.listAll();
         noteAdapter.setItems(b);
+        noteAdapter.notifyDataSetChanged();
+    }
+
+    fun handleGoToNotePage(note:Note?){
+
+        val bundleArgs = bundleOf("note" to note)
+        Navigation.findNavController(this@HomeNote.requireView()).navigate(R.id.action_homeTasks_to_notePage, args=bundleArgs);
 
     }
+
+
+    inner class mySimpleCallback: ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT){
+        override fun onMove(
+            recyclerView: RecyclerView,
+            viewHolder: RecyclerView.ViewHolder,
+            target: RecyclerView.ViewHolder
+        ): Boolean {
+           return true
+        }
+
+        override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+
+           val idNote = noteAdapter.notes[viewHolder.adapterPosition].id
+            if(idNote is String){
+                model.removeNote(idNote)
+
+            }
+            Toast.makeText(this@HomeNote.context, "The note was deleted!", Toast.LENGTH_SHORT)
+          setDataIntoRv()
+
+
+        }
+    }
+
 
 }

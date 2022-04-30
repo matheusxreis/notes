@@ -13,6 +13,12 @@ data class Note(
     val createdAt: Date? = Calendar.getInstance().time,
     val description:String? = "Sem descrição",
     val done: Boolean? = false,
-    val id: String? ="ahashuass",
+    val id: String? = setId(),
     val important: Boolean = false,
     ): Parcelable
+
+
+
+fun setId():String{
+    return (1..999).toList().random().toString()
+}

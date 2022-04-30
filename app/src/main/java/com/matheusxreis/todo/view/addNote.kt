@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
@@ -46,7 +47,7 @@ class addNote : Fragment(R.layout.fragment_add_task) {
         super.onViewCreated(view, savedInstanceState);
 
 
-        val backButton = view.findViewById<ImageView>(R.id.backicon)
+        val backButton = view.findViewById<ImageButton>(R.id.backicon)
 
 
 
@@ -59,7 +60,7 @@ class addNote : Fragment(R.layout.fragment_add_task) {
     }
 
 
-    fun handleClickBackButton(view: View, button: ImageView){
+    fun handleClickBackButton(view: View, button: ImageButton){
         button.setOnClickListener {
             backHome(view)
         }
@@ -89,7 +90,7 @@ class addNote : Fragment(R.layout.fragment_add_task) {
         }
     }
 
-    fun changePriority(view:View){
+    private fun changePriority(view:View){
         val priorityUrgentButton = view.findViewById<MaterialButton>(R.id.urgent_button)
 
         val priorityEasyButton = view.findViewById<MaterialButton>(R.id.easy_button)

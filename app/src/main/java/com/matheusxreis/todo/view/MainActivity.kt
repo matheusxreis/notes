@@ -45,7 +45,8 @@ class MainActivity : AppCompatActivity() {
 
         mainViewModel.noteLiveData.observe(this)
             {
-                Toast.makeText(this, "The list has changed!", Toast.LENGTH_LONG).show()
+
+
             }
 
 
