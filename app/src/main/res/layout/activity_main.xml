@@ -7,92 +7,13 @@
     android:background="@color/secondary"
     tools:context=".MainActivity">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
-        android:layout_width="1000dp"
-        android:layout_height="5dp"
-        android:background="@android:color/transparent"
-        android:backgroundTint="@android:color/transparent"
-        app:cardElevation="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar2"
-
-        />
-
-
-    <androidx.appcompat.widget.Toolbar
-        android:layout_marginBottom="4dp"
-        android:elevation="8dp"
-
-        android:id="@+id/toolbar2"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="0dp"
-        android:background="@color/toolBar"
-        android:backgroundTint="@color/toolBar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-
-            >
-
-            <ImageView
-                android:id="@+id/imagelogo"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="7dp"
-                android:src="@drawable/ic_emojione_v1_empty_note_page"
-                app:layout_constraintEnd_toStartOf="@id/textlogo"
-
-                app:layout_constraintTop_toTopOf="@id/textlogo" />
-
-            <TextView
-                android:id="@+id/textlogo"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginTop="5dp"
-                android:fontFamily="@font/roboto_condensed_bold"
-                android:text="NOTES"
-                android:textColor="@color/white"
-                android:textSize="45dp"
-                app:layout_constraintStart_toEndOf="@id/imagelogo"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-    </androidx.appcompat.widget.Toolbar>
-
-
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar2"
-        tools:listitem="@layout/list_holder"/>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_margin="6dp"
-        android:background="@android:color/transparent"
-        android:backgroundTint="@color/black"
-        android:src="@drawable/ic_baseline_add_24"
-        app:backgroundTint="@color/black"
-        app:fabCustomSize="70dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:maxImageSize="30dp"
-        app:tint="@android:color/white" />
-
-
+        android:layout_height="match_parent"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/my_nav"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

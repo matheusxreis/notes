@@ -4,7 +4,8 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginTop="20dp"
-    android:layout_marginHorizontal="5dp">
+    android:layout_marginHorizontal="5dp"
+>
 
 
     <androidx.cardview.widget.CardView
@@ -12,11 +13,12 @@
         app:layout_constraintTop_toTopOf="parent"
         android:id="@+id/cardView"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:backgroundTint="@color/primary"
-        android:background="@android:color/transparent"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="8dp">
+        android:layout_height="100dp"
+        android:backgroundTint="@color/white"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="80dp"
+
+        >
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -30,6 +32,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginTop="8dp"
+                app:tint="@color/primary"
                 />
 
 
@@ -37,29 +40,45 @@
                 android:id="@+id/rv_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_medium"
+                android:fontFamily="@font/roboto_condensed_light"
                 android:text="Passear com o cachorro"
-                android:textColor="@color/black"
+                android:textColor="@color/primary"
                 android:textSize="20dp"
                 app:layout_constraintBottom_toBottomOf="@+id/icon_pen"
-                app:layout_constraintStart_toEndOf="@+id/icon_pen" />
+                app:layout_constraintStart_toEndOf="@+id/icon_pen"
+                />
 
 
             <TextView
                 android:id="@+id/rv_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:text="12/12/2002"
                 android:fontFamily="@font/roboto_condensed_regular"
                 android:layout_marginRight="8dp"
                 android:textSize="16dp"
+                android:textColor="@color/primary"
+                android:layout_marginBottom="15dp"
                 />
+
+             <androidx.cardview.widget.CardView
+                android:layout_width="82dp"
+                android:layout_height="9dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                 android:backgroundTint="@color/urgent"
+                 app:cardCornerRadius="3dp"
+                 android:layout_marginBottom="15dp"
+                />
+
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

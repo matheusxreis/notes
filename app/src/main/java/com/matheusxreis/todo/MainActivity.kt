@@ -27,9 +27,6 @@ class MainActivity : AppCompatActivity() {
 
     //
 
-
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -49,11 +46,9 @@ class MainActivity : AppCompatActivity() {
                 )
             ).get(MainViewModel::class.java)
 
-        initRecyclerView()
-        setDataIntoRv()
+
 
     }
-
 
     override fun onStart(){
         super.onStart()
@@ -72,11 +67,17 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    override fun onResume(){
+        super.onResume()
+        initRecyclerView()
+        setDataIntoRv()
+    }
+
     fun initRecyclerView(){
         this.noteAdapter = NoteAdapter();
 
-        val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
-        recyclerView.apply{
+        val recyclerView: RecyclerView = this.findViewById(R.id.recyclerView)
+       recyclerView.apply{
             layoutManager = LinearLayoutManager(this@MainActivity)
             adapter = noteAdapter
         }

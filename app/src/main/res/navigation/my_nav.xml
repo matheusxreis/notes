@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/homeTasks">
+
+
+
+
+    <fragment
+        android:id="@+id/homeTasks"
+        android:name="com.matheusxreis.todo.HomeTasks"
+        android:label="fragment_home_tasks"
+        tools:layout="@layout/fragment_home_tasks" >
+        <action
+            android:id="@+id/action_homeTasks_to_addTask"
+            app:destination="@id/addTask"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/addTask"
+        android:name="com.matheusxreis.todo.addTask"
+        android:label="fragment_add_task"
+        tools:layout="@layout/fragment_add_task" >
+        <action
+            android:id="@+id/action_addTask_to_homeTasks"
+            app:destination="@id/homeTasks"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
+    </fragment>
+</navigation>

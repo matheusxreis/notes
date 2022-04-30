@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primary">#FFF982</color>
-    <color name="secondary">#FEFAAF</color>
+    <color name="primary">#388DD7</color>
+    <color name="secondary">#F4F9FB</color>
+    <color name="white"> #FFFFFF </color>
+
+
     <color name="black"> #565B5F </color>
     <color name="back"> #21293033 </color>
 
-    <color name="toolBar"> #565B5F </color>
+    <color name="toolBar"> #388DD7 </color>
+    <color name="urgent">#DF4C4C</color>
+    <color name="easy">#56BEA5</color>
 
-    <color name="white"> #FFFFFF </color>
+
 </resources>
