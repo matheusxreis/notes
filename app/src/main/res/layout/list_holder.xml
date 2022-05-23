@@ -5,6 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginTop="20dp"
     android:layout_marginHorizontal="5dp"
+    android:background="@android:color/transparent"
 >
 
 
@@ -14,7 +15,7 @@
         android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:backgroundTint="@color/white"
+
         app:cardCornerRadius="5dp"
         app:cardElevation="80dp"
 
@@ -22,7 +23,10 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:id="@+id/rv_background"
+            >
 
             <ImageView
                 android:id="@+id/icon_pen"

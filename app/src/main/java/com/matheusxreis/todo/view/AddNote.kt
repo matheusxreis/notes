@@ -33,7 +33,7 @@ private const val ARG_PARAM2 = "param2"
  * Use the [addTask.newInstance] factory method to
  * create an instance of this fragment.
  */
-class addNote : Fragment(R.layout.fragment_add_task) {
+class AddNote : Fragment(R.layout.fragment_add_task) {
 
 
 
@@ -142,7 +142,7 @@ class addNote : Fragment(R.layout.fragment_add_task) {
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            addNote().apply {
+            AddNote().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)

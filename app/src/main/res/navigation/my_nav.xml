@@ -29,7 +29,7 @@
     </fragment>
     <fragment
         android:id="@+id/addTask"
-        android:name="com.matheusxreis.todo.view.addNote"
+        android:name="com.matheusxreis.todo.view.AddNote"
         android:label="fragment_add_task"
         tools:layout="@layout/fragment_add_task" >
         <action

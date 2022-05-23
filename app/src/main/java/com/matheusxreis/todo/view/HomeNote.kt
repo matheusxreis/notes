@@ -7,6 +7,7 @@ import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
@@ -60,7 +61,7 @@ class HomeNote : Fragment(R.layout.fragment_home_tasks) {
 
         val recyclerView: RecyclerView = view.findViewById(R.id.recyclerView)
 
-        ItemTouchHelper(mySimpleCallback()).attachToRecyclerView(recyclerView)
+        ItemTouchHelper(MySimpleCallback()).attachToRecyclerView(recyclerView)
         recyclerView.apply{
             layoutManager = LinearLayoutManager(this@HomeNote.requireContext())
             adapter = noteAdapter
@@ -82,27 +83,54 @@ class HomeNote : Fragment(R.layout.fragment_home_tasks) {
     }
 
 
-    inner class mySimpleCallback: ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT){
+    inner class MySimpleCallback: ItemTouchHelper.SimpleCallback(
+        ItemTouchHelper.DOWN or ItemTouchHelper.UP,
+        ItemTouchHelper.RIGHT){
         override fun onMove(
             recyclerView: RecyclerView,
             viewHolder: RecyclerView.ViewHolder,
             target: RecyclerView.ViewHolder
         ): Boolean {
-           return true
+
+            val startPosition = viewHolder.adapterPosition
+            val endPosition = target.adapterPosition
+
+            recyclerView.adapter?.notifyItemMoved(startPosition, endPosition)
+
+            return true
         }
 
         override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-
            val idNote = noteAdapter.notes[viewHolder.adapterPosition].id
             if(idNote is String){
                 model.removeNote(idNote)
-
+                Toast.makeText(this@HomeNote.context, "The note was deleted!", Toast.LENGTH_SHORT).show()
             }
-            Toast.makeText(this@HomeNote.context, "The note was deleted!", Toast.LENGTH_SHORT)
+
           setDataIntoRv()
-
-
         }
+
+        override fun isLongPressDragEnabled(): Boolean {
+            return super.isLongPressDragEnabled()
+        }
+
+        override fun onSelectedChanged(viewHolder: RecyclerView.ViewHolder?, actionState: Int) {
+
+            if(actionState === ItemTouchHelper.ACTION_STATE_DRAG){
+
+                println("ARRASTOU")
+                viewHolder?.itemView?.setBackgroundColor(
+                    ContextCompat.getColor(
+                        viewHolder.itemView.context,
+                        R.color.black
+                    )
+                )
+            }
+
+            super.onSelectedChanged(viewHolder, actionState)
+        }
+
+
     }
 
 
